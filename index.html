@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Call css file for designing layout -->
+    <link rel="stylesheet" type="text/css" href="css/styleKHN.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="navbar.css" /> -->
+    <!-- Import Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Anaheim"
+      rel="stylesheet"
+    />
+    <!-- Title on the tab -->
+    <title>Devices II Project</title>
+  </head>
+
+  <body>
+    <!-- Nav Bar -->
+    <div class="topnavKHN">
+      <a class="active" href="index.html">KHN Biquad Filter</a>
+      <a href="sk.html">Sallen-Key 2nd LPF</a>
+      <a href="mfb.html">Multiple Feedback LPF</a>
+    </div>
+    <!-- Title of filter-->
+    <h2 style="text-align:center;">
+      <b><u>KHN Biquad Filter's Component Calculator</u></b>
+    </h2>
+
+    <!-- Schematic -->
+    <img
+      src="https://www.img.in.th/images/9a0931da28833a9435bafc70e863fcf1.png"
+      alt="9a0931da28833a9435bafc70e863fcf1.png"
+      border="0"
+      style="max-width:100%;"
+    />
+
+    <img
+      src="https://www.img.in.th/images/9c0fa855cb7f09c20b78d7a4ef82337b.jpg"
+      alt="9c0fa855cb7f09c20b78d7a4ef82337b.jpg"
+      border="0"
+      style="max-width:90%;"
+    />
+
+    <!-- Calculation Part -->
+    <div id="KHNcontainer">
+      <!-- Form for calculating 3dB or corner frequency -->
+      <form>
+        <!-- Title -->
+        <h2>3dB Calculation</h2>
+        <!-- Variables -->
+        <ul>
+          <!-- R 3dB -->
+          <li><b>Rb & Rl</b></li>
+          <input type="text" id="KHNr3db" />
+          <!-- Select unit -->
+          <select id="KHNpickcOhm">
+            <option value="0">&#8486;</option>
+            <option value="3">k&#8486;</option>
+            <option value="6">M&#8486;</option></select
+          ><br />
+
+          <!-- R 3dB -->
+          <li><b>Cb & Cl</b></li>
+          <input type="text" id="KHNc3db" />
+          <!-- Select unit -->
+          <select id="KHNpickcFarad">
+            <option value="-6">&#181;F</option>
+            <option value="-9">nF</option>
+            <option value="-12">pF</option></select
+          ><br />
+
+          <!-- Corner Frequency -->
+          <li><b>Corner Frequency</b></li>
+          <input type="text" id="KHNcfreq" />
+          Hz<br /><br />
+
+          <!-- Calculating button -->
+          <input
+            type="button"
+            onclick="KHNcornerHandleClick()"
+            value="C A L C U L A T E"
+            id="calbutton"
+          />
+
+          <!-- Reset button -->
+          <input type="reset" value="R E S E T" id="rsbutton" />
+        </ul>
+      </form>
+
+      <br />
+
+      <!-- Form for calculating components -->
+      <form>
+        <!-- Title -->
+        <h2>Components Calculation</h2>
+        <!-- Variables -->
+        <ul>
+          <!-- Quality Factor -->
+          <li><b>Quality Factor (Q)</b></li>
+          <input type="text" id="KHNq" />
+          <br />
+
+          <!-- R1 -->
+          <li><b>R1</b></li>
+          <input type="text" id="KHNr1" />
+          <!-- Select unit -->
+          <select id="KHNpickr1">
+            <option value="0">&#8486;</option>
+            <option value="3">k&#8486;</option>
+            <option value="6">M&#8486;</option></select
+          ><br />
+
+          <!-- R2 -->
+          <li><b>R2</b></li>
+          <input type="text" id="KHNr2" />
+          <select id="KHNpickr2">
+            <option value="0">&#8486;</option>
+            <option value="3">k&#8486;</option>
+            <option value="6">M&#8486;</option></select
+          ><br />
+
+          <!-- R3 & R4 or R3 = R4-->
+          <li><b>R3 & R4 (Not necessary)</b></li>
+          <input type="text" id="KHNr3r4" />
+          <!-- Select unit -->
+          <select id="KHNpickr3r4">
+            <option value="0">&#8486;</option>
+            <option value="3">k&#8486;</option>
+            <option value="6">M&#8486;</option></select
+          ><br /><br />
+
+          <!-- Output -->
+          <!-- DC Gain -->
+          <li><b>DC Gain (Ao)</b></li>
+          <input type="text" id="KHNdcGain" value=" -" readonly /><br />
+
+          <!-- DC Gain in dB -->
+          <li><b>DC Gain (Ao) in dB</b></li>
+          <input type="text" id="KHNdcGaindb" value=" -" readonly />
+          dB<br /><br />
+
+          <!-- 3dB Gain -->
+          <li><b>3dB Gain (Ac)</b></li>
+          <input type="text" id="KHN3dbGain" value=" -" readonly /><br />
+
+          <!-- 3dB Gain in dB -->
+          <li><b>3dB Gain (Ac) in dB</b></li>
+          <input type="text" id="KHN3dbGaindb" value=" -" readonly />
+          dB<br /><br />
+
+          <!-- Calculating button -->
+          <input
+            type="button"
+            onclick="KHNcompHandleClick()"
+            value="C A L C U L A T E"
+            id="calbutton"
+          />
+
+          <!-- Reset button -->
+          <input type="reset" value="R E S E T" id="rsbutton" />
+        </ul>
+      </form>
+    </div>
+
+    <!-- Call js file for logic controlling -->
+    <script src="script/scriptKHN.js"></script>
+  </body>
+</html>

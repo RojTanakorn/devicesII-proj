@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Call css file for designing layout -->
+    <link rel="stylesheet" type="text/css" href="css/styleSK.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="navbar.css" /> -->
+    <!-- Import Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Anaheim"
+      rel="stylesheet"
+    />
+    <!-- Title on the tab -->
+    <title>Devices II Project</title>
+  </head>
+
+  <body>
+    <!-- Nav Bar -->
+    <div class="topnavSK">
+      <a href="index.html">KHN Biquad Filter</a>
+      <a class="active" href="sk.html">Sallen-Key 2nd LPF</a>
+      <a href="mfb.html">Multiple Feedback LPF</a>
+    </div>
+    <!-- Title of filter-->
+    <h2 style="text-align:center;">
+      <b><u>Sallen-Key LPF's Component Calculator</u></b>
+    </h2>
+
+    <!-- Schematic -->
+    <img
+      src="https://www.img.in.th/images/79866f5fc14ad1242ee47dcdfb930b34.png"
+      alt="79866f5fc14ad1242ee47dcdfb930b34.png"
+      border="0"
+      style="max-width:100%;"
+    />
+    <img
+      src="https://www.img.in.th/images/799a05e2aa28e19a70694863ab6fc145.jpg"
+      alt="799a05e2aa28e19a70694863ab6fc145.jpg"
+      border="0"
+      style="max-width: 70%;"
+    />
+
+    <!-- Calculation Part -->
+    <div id="SKcontainer">
+      <form>
+        <h2>Quality Factor (Q)</h2>
+        <ul>
+          <li><b>Quality Factor (Q)</b> <input type="text" id="SKq" /></li>
+          <br />
+          <li>
+            <b>m </b><input type="text" id="SKm" /> <b>n </b
+            ><input type="text" id="SKn" />
+          </li>
+          <br />
+          <input
+            type="button"
+            onclick="SKHandleClick(0)"
+            value="C A L C U L A T E"
+            id="calbutton"
+          />
+          <!-- Reset button -->
+          <input type="reset" value="R E S E T" id="rsbutton" />
+        </ul>
+      </form>
+
+      <!-- Form for calculating 3dB or corner frequency -->
+      <form>
+        <!-- Title -->
+        <h2>3dB Calculation</h2>
+        <!-- Variables -->
+        <ul>
+          <!-- Corner Frequency -->
+          <li><b>Corner Frequency **</b></li>
+          <input type="text" id="SKcfreq" />
+          Hz<br />
+
+          <!-- C1 -->
+          <li><b>C1 (nC)</b></li>
+          <input type="text" id="SKc1" />
+          <!-- Select unit -->
+          <select id="uc1">
+            <option value="-6">&#181;F</option>
+            <option value="-9">nF</option>
+            <option value="-12">pF</option></select
+          ><br />
+
+          <!-- C2 -->
+          <li><b>C2 (C) *</b></li>
+          <input type="text" id="SKc2" />
+          <!-- Select unit -->
+          <select id="uc2">
+            <option value="-6">&#181;F</option>
+            <option value="-9">nF</option>
+            <option value="-12">pF</option></select
+          ><br />
+
+          <!-- R1 -->
+          <li><b>R1 (mR)</b></li>
+          <input type="text" id="SKr1" />
+          <!-- Select unit -->
+          <select id="ur1">
+            <option value="0">&#8486;</option>
+            <option value="3">k&#8486;</option>
+            <option value="6">M&#8486;</option></select
+          ><br />
+
+          <!-- R2 -->
+          <li><b>R2 (R) *</b></li>
+          <input type="text" id="SKr2" />
+          <!-- Select unit -->
+          <select id="ur2">
+            <option value="0">&#8486;</option>
+            <option value="3">k&#8486;</option>
+            <option value="6">M&#8486;</option></select
+          ><br /><br />
+
+          <!-- Calculating button -->
+          <input
+            type="button"
+            onclick="SKHandleClick(1)"
+            value="C A L C U L A T E"
+            id="calbutton"
+          />
+
+          <!-- Reset button -->
+          <input type="reset" value="R E S E T" id="rsbutton" />
+        </ul>
+      </form>
+
+      <br />
+
+      <!-- Form for calculating components -->
+      <form>
+        <!-- Title -->
+        <h2>Gain Calculation</h2>
+        <!-- Variables -->
+        <ul>
+          <!-- Output -->
+          <!-- DC Gain -->
+          <li><b>DC Gain (Ao)</b></li>
+          <input type="text" id="SKdcGain" value=" 1" readonly /><br />
+
+          <!-- DC Gain in dB -->
+          <li><b>DC Gain (Ao) in dB</b></li>
+          <input type="text" id="SKdcGaindb" value=" 0" readonly />
+          dB<br /><br />
+
+          <!-- 3dB Gain -->
+          <li><b>3dB Gain (Ac)</b></li>
+          <input type="text" id="SK3dbGain" value=" -" readonly /><br />
+
+          <!-- 3dB Gain in dB -->
+          <li><b>3dB Gain (Ac) in dB</b></li>
+          <input type="text" id="SK3dbGaindb" value=" -" readonly />
+          dB<br /><br />
+
+          <!-- Calculating button -->
+          <input
+            type="button"
+            onclick="SKHandleClick(2)"
+            value="C A L C U L A T E"
+            id="calbutton"
+          />
+
+          <!-- Reset button -->
+          <input type="reset" value="R E S E T" id="rsbutton" />
+        </ul>
+      </form>
+    </div>
+
+    <!-- Call js file for logic controlling -->
+    <script src="script/scriptSK.js"></script>
+  </body>
+</html>

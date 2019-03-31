@@ -1,0 +1,84 @@
+body {
+  font-family: "Anaheim";
+  font-size: 4vw;
+  background-color: white;
+  margin: 0;
+}
+
+h2 {
+  color: rgb(197, 0, 0);
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 400px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+#MFBcontainer {
+  border-radius: 8px;
+  padding-left: 20px;
+  border: 10px ridge rgb(197, 0, 0);
+  margin: 0% auto;
+  width: 90%;
+  background-color: rgb(255, 232, 232);
+}
+
+.topnavMFB {
+  overflow: hidden;
+  background-color: rgb(255, 232, 232);
+}
+
+.topnavMFB a {
+  font-weight: bold;
+  float: left;
+  color: rgb(197, 0, 0);
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-decoration: none;
+  font-size: 3.25vw;
+  width: 33.3333333333333333333333333333333333%;
+}
+
+.topnavMFB a:hover {
+  background-color: rgb(255, 100, 100);
+  color: white;
+}
+
+.topnavMFB a.active {
+  background-color: rgb(197, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 431px) {
+  .topnavMFB a {
+    font-size: 14px;
+  }
+}
+
+#calbutton {
+  background-color: whitesmoke;
+  color: black;
+  font-family: Anaheim;
+  font-weight: bold;
+  margin-right: 10px;
+  border: 1px solid rgb(163, 163, 163);
+  border-radius: 2px;
+}
+
+#rsbutton {
+  background-color: red;
+  color: white;
+  font-family: Anaheim;
+  font-weight: bold;
+  margin-right: 10px;
+  border: 1px solid rgb(196, 0, 0);
+  border-radius: 2px;
+}
